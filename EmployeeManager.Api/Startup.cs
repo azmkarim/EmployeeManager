@@ -27,6 +27,18 @@ namespace EmployeeManager.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // For Cross Site Resource Sharing Need To Activate This !!!
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+                //builder.WithOrigins("http://localhost:44358/",
+                //                    "https://localhost:44358/")
+                //                    .AllowAnyHeader()
+                //                    .AllowAnyMethod();
+            }));
+
             services.AddControllers();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(this.configuration.GetConnectionString("AppDb")));
             services.AddScoped<IEmployeeRepository, EmployeeSqlRepository>();
@@ -53,6 +65,8 @@ namespace EmployeeManager.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            // For Cross Site Resource Sharing Need To Activate This !!!
+            app.UseCors("MyPolicy");
 
             app.UseStaticFiles();
             app.UseRouting();

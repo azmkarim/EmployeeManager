@@ -5,7 +5,7 @@
         //}
 
         var options = {};
-        options.url = "https://localhost:44399/api/employees";
+        options.url = "https://localhost:44399/api/employeesjquery";
         options.type = "GET";
         options.beforeSend = function (xhr) {
             //xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
@@ -50,7 +50,7 @@
             if (xhr.status == 401) {
                 window.location.href = "/EmployeeManager/SignIn";
             }
-            $("h3.message").html("Error while calling the API");
+            $("h3.message").html("Error while calling the API. Status Code - " + xhr.status);
         }
 
         $.ajax(options);
