@@ -23,7 +23,7 @@ namespace EmployeeManager.Api.Coontrollers
         
         [HttpGet]
         // [Authorize(Roles = "Manager")]
-        [Authorize]
+        // [Authorize]
         public List<Employee> Get()
         {
             return employeeRepository.SelectAll();

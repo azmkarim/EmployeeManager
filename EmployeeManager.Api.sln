@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.Api", "Empl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManager.ApiClient", "EmployeeManager.ApiClient\EmployeeManager.ApiClient.csproj", "{2B340BDB-2DAD-45E4-9D46-9BEBBEE6A6F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManager.JQuery", "EmployeeManager.JQuery\EmployeeManager.JQuery.csproj", "{8262381D-22DB-42F9-870B-DEAB37A47A5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2B340BDB-2DAD-45E4-9D46-9BEBBEE6A6F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B340BDB-2DAD-45E4-9D46-9BEBBEE6A6F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B340BDB-2DAD-45E4-9D46-9BEBBEE6A6F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8262381D-22DB-42F9-870B-DEAB37A47A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8262381D-22DB-42F9-870B-DEAB37A47A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8262381D-22DB-42F9-870B-DEAB37A47A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8262381D-22DB-42F9-870B-DEAB37A47A5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
