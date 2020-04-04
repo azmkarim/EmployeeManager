@@ -20,13 +20,13 @@ namespace EmployeeManager.JQuery.Controllers
 
         public IActionResult Update(int id)
         {
-            ViewBag.EmployeeID = id;
+            ViewBag.EmployeeId = id;
             return View();
         }
 
         public IActionResult Delete(int id)
         {
-            ViewBag.EmployeeID = id;
+            ViewBag.EmployeeId = id;
             return View();
         }
 

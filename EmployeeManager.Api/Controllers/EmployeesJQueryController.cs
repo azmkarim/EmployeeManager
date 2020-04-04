@@ -23,7 +23,6 @@ namespace EmployeeManager.Api.Controllers
         public async Task<IActionResult> GetAsync()
         {
             List<Employee> employeesList = await appDbContext.Employees.ToListAsync();
-            Console.WriteLine("Listing Employee Done. Returning ...");
             return Ok(employeesList);
         }
 
@@ -42,20 +41,49 @@ namespace EmployeeManager.Api.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<IActionResult> PostAsync([FromBody]Employee employee)
         {
+            if (ModelState.IsValid)
+            {
+                await appDbContext.Employees.AddAsync(employee);
+                await appDbContext.SaveChangesAsync();
+                return CreatedAtAction("Get", new { id = employee.EmployeeId }, employee);
+            } else
+            {
+                return BadRequest();
+            }
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public async Task<IActionResult> PutAsync(int id, [FromBody]Employee employee)
         {
+            if (ModelState.IsValid)
+            {
+                appDbContext.Employees.Update(employee);
+                await appDbContext.SaveChangesAsync();
+                return NoContent();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
+            // Checkinf Whether Employee Exist !!!
+            bool employeeExist = await appDbContext.Employees.AnyAsync(a => a.EmployeeId == id);
+            if (employeeExist == false)
+            {
+                return NotFound();
+            }
+            Employee employee = await appDbContext.Employees.FindAsync(id);
+            appDbContext.Remove(employee);
+            await appDbContext.SaveChangesAsync();
+            return NoContent();
         }
     }
 }

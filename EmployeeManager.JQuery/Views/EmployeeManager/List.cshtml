@@ -16,7 +16,7 @@
             data.forEach(function (element) {
                 var row = "<tr>";
                 row += "<td>";
-                row += element.employeeID;
+                row += element.employeeId;
                 row += "</td>";
                 row += "<td>";
                 row += element.firstName;
@@ -28,10 +28,10 @@
                 row += element.title;
                 row += "</td>";
                 row += "<td>";
-                row += "<a href='/EmployeeManager/Update/" + element.employeeID + "' class='linkbutton'>Update</a>";
+                row += "<a href='/EmployeeManager/Update/" + element.employeeId + "' class='linkbutton'>Update</a>";
                 row += "</td>";
                 row += "<td>";
-                row += "<a href='/EmployeeManager/Delete/" + element.employeeID + "' class='linkbutton'>Delete</a>";
+                row += "<a href='/EmployeeManager/Delete/" + element.employeeId + "' class='linkbutton'>Delete</a>";
                 row += "</td>";
                 row += "</tr>";
 
